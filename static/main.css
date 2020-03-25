@@ -1,12 +1,13 @@
 body {
-    font-family: 'Liu Jian Mao Cao', cursive;
-    font-weight: bolder;
-    font-size: x-large;
+    font-family: 'Sen', sans-serif;
 }
 
 .navbar {
     min-height: 80px;
     box-shadow: 4px 4px lightgray;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-weight: bolder;
+    font-size: x-large;
 }
 
 .navbar-brand {
@@ -16,4 +17,16 @@ body {
 
 form {
     box-shadow: 0 8px 6px -6px lightgray;
+}
+
+label {
+    color: black !important;
+}
+
+input[type=text] {
+    border-color: gray;
+}
+
+.form-title {
+    margin-bottom: 25px;
 }

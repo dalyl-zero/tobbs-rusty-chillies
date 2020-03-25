@@ -3,26 +3,73 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form action="{{ url_for('create_route') }}" method="POST" class="border-bottom-0 rounded-lg bg-white p-5 mt-5">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="w-100 mt-3 alert alert-{{ category }}">
+                                <span class="font-weight-bold">{{ message }}</span> has been added to our HOT pepper
+                                collection!
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('create') }}" method="POST"
+                      class="border-bottom-0 rounded-lg bg-white p-5 mt-5">
                     {{ form.hidden_tag() }}
-                    <h2>Create Chilli Variant</h2>
+                    <h2 class="form-title">Create Chilli Variant</h2>
                     <div class="form-group">
                         {{ form.name.label(class='form-control') }}
-                        {{ form.name(class='form-control') }}
+
+                        {% if form.name.errors %}
+                            {{ form.name(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.name(class='form-control') }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         {{ form.scoville.label(class='form-control') }}
-                        {{ form.scoville(class='form-control') }}
+
+                        {% if form.scoville.errors %}
+                            {{ form.scoville(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.scoville.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.scoville(class='form-control') }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         {{ form.days_to_germinate.label(class='form-control') }}
-                        {{ form.days_to_germinate(class='form-control') }}
+
+                        {% if form.days_to_germinate.errors %}
+                            {{ form.days_to_germinate(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.days_to_germinate.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.days_to_germinate(class='form-control') }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         {{ form.create(class='btn btn-success') }}
+                        <a href="{{ url_for('create') }}" class="btn btn-info">Reset</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <footer class="page-footer font-small bg-light mt-2">
+        <div class="footer-copyright text-center text-dark py-3">&copy; 2020 Copyright:
+            <a href="https://github.com/dalyl-zero/"> Ali Dalyl Hamadou</a>
+        </div>
+    </footer>
 {% endblock content %}
