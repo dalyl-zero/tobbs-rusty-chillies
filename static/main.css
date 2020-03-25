@@ -1,0 +1,19 @@
+body {
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.navbar {
+    min-height: 80px;
+    box-shadow: 4px 4px lightgray;
+}
+
+.navbar-brand {
+    color: darkred !important;
+    font-size: 1.8em;
+}
+
+form {
+    box-shadow: 0 8px 6px -6px lightgray;
+}
