@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 flask-wtf = "==0.14.3"
+flask-sqlalchemy = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
